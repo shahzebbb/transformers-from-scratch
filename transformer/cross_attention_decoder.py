@@ -11,9 +11,9 @@ class CrossAttentionDecoderBlock(nn.Module):
         self.ln2 = nn.LayerNorm(embd_size)
 
     def forward(self, enc, dec, mask = True):
-            _x = dec
-            enc = self.ln1(enc)
-            dec = self.ln1(dec)
-            x = _x + self.mha(k=enc, q=dec, v=enc, mask=mask)
-            x = x + self.ff(self.ln2(x))
-            return x
+        _x = dec
+        enc = self.ln1(enc)
+        dec = self.ln1(dec)
+        x = _x + self.mha(k=enc, q=dec, v=enc, mask=mask)
+        x = x + self.ff(self.ln2(x))
+        return x
