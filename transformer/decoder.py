@@ -11,8 +11,8 @@ class DecoderBlock(nn.Module):
         self.ln2 = nn.LayerNorm(embd_size)
 
     def forward(self, x, mask = True):
-            _x = x
-            x = self.ln1(x)
-            x = _x + self.mha(x, x, x, mask)
-            x = x + self.ff(self.ln2(x))
-            return x
+        _x = x
+        x = self.ln1(x)
+        x = _x + self.mha(x, x, x, mask)
+        x = x + self.ff(self.ln2(x))
+        return x

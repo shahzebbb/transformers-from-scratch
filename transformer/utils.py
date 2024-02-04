@@ -20,7 +20,7 @@ class Head(nn.Module):
 
         B,T,C = k.shape # C is head_size
 
-        weights = q @ k.tranpose(-2,-1) * C**-0.5
+        weights = q @ k.transpose(-2,-1) * C**-0.5
 
         if mask is not None:
             self.register_buffer('tril', torch.tril(torch.ones(T, T)))
